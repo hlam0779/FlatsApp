@@ -30,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final PatternItem GAP = new Gap(PATTERN_GAP_LENGTH_PX);
     private static final PatternItem DASH = new Dash(PATTERN_DASH_LENGTH_PX);
     private static final int STROKE_WIDTH = 2;
+    private static final int FILL_COLOR = 0x20ffff00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Polygon woodlands = mMap.addPolygon(new PolygonOptions()
                 .addAll(woodLandsBoudary)
-                .strokeColor(Color.RED).strokeWidth(STROKE_WIDTH));
+                .strokeColor(Color.RED).strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
         List<LatLng> angMokioBoundary = Arrays.asList(new LatLng(1.355501, 103.856891), new LatLng(1.356918, 103.857017),
                 new LatLng(1.368030, 103.860837), new LatLng(1.369424, 103.860923), new LatLng(1.370851, 103.860590),
@@ -105,7 +107,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon angMoKio = mMap.addPolygon(new PolygonOptions()
                 .addAll(angMokioBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
         List<LatLng> hougangBoundary = Arrays.asList(new LatLng(1.386931, 103.873637), new LatLng(1.384474, 103.876513),
                 new LatLng(1.383393, 103.876880), new LatLng(1.378407, 103.876656), new LatLng(1.377999, 103.876707),
@@ -135,7 +138,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon hougang = mMap.addPolygon(new PolygonOptions()
                 .addAll(hougangBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
 
         List<LatLng> punggolBoundary = Arrays.asList(new LatLng(1.401158, 103.886884), new LatLng(1.400142, 103.894405),
@@ -161,7 +165,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon punggol = mMap.addPolygon(new PolygonOptions()
                 .addAll(punggolBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
         List<LatLng> sengkangBoundary = Arrays.asList(new LatLng(1.397052, 103.852186), new LatLng(1.397668, 103.854085),
                 new LatLng(1.397697, 103.855412), new LatLng(1.397122, 103.856547), new LatLng(1.395944, 103.857549),
@@ -187,7 +192,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon sengkang = mMap.addPolygon(new PolygonOptions()
                 .addAll(sengkangBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
         List<LatLng> serangoonBoundary = Arrays.asList(new LatLng(1.391094, 103.858123), new LatLng(1.384155, 103.858394),
                 new LatLng(1.378629, 103.858323), new LatLng(1.377769, 103.858347), new LatLng(1.375154, 103.858854),
@@ -217,7 +223,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon serangoon = mMap.addPolygon(new PolygonOptions()
                 .addAll(serangoonBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
         List<LatLng> bedokBoundary = Arrays.asList(new LatLng(1.337750, 103.896175), new LatLng(1.329449, 103.904826),
                 new LatLng(1.328253, 103.905612), new LatLng(1.327048, 103.905844), new LatLng(1.326037, 103.905830),
@@ -260,9 +267,198 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon bedok = mMap.addPolygon(new PolygonOptions()
                 .addAll(bedokBoundary)
                 .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH));
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
 
-        
+        List<LatLng> pasirRisBoundary = Arrays.asList(new LatLng(1.385921, 103.914231), new LatLng(1.380988, 103.918823),
+                new LatLng(1.379701, 103.920754), new LatLng(1.378113, 103.924831), new LatLng(1.377255, 103.928414),
+                new LatLng(1.374145, 103.935431), new LatLng(1.371292, 103.940581), new LatLng(1.369768, 103.942405),
+                new LatLng(1.368674, 103.943564), new LatLng(1.367709, 103.945173), new LatLng(1.367173, 103.946482),
+                new LatLng(1.365371, 103.953863), new LatLng(1.364749, 103.955580), new LatLng(1.363934, 103.957168),
+                new LatLng(1.361917, 103.959721), new LatLng(1.359708, 103.961545), new LatLng(1.357198, 103.962811),
+                new LatLng(1.352693, 103.964227), new LatLng(1.353851, 103.968004), new LatLng(1.354495, 103.968562),
+                new LatLng(1.359836, 103.970064), new LatLng(1.361874, 103.971931), new LatLng(1.362550, 103.973636),
+                new LatLng(1.363151, 103.974366), new LatLng(1.364084, 103.974817), new LatLng(1.366540, 103.975578),
+                new LatLng(1.367141, 103.976104), new LatLng(1.369039, 103.978561), new LatLng(1.370273, 103.979773),
+                new LatLng(1.370659, 103.979977), new LatLng(1.371388, 103.979988), new LatLng(1.371903, 103.979773),
+                new LatLng(1.372504, 103.979001), new LatLng(1.373201, 103.975836), new LatLng(1.373930, 103.974972),
+                new LatLng(1.377159, 103.978051), new LatLng(1.377942, 103.978416), new LatLng(1.378778, 103.978566),
+                new LatLng(1.379770, 103.978078), new LatLng(1.386013, 103.974559), new LatLng(1.386763, 103.973808),
+                new LatLng(1.387386, 103.972757), new LatLng(1.386994, 103.971566), new LatLng(1.384527, 103.969056),
+                new LatLng(1.383154, 103.967232), new LatLng(1.381942, 103.967629), new LatLng(1.381304, 103.967591),
+                new LatLng(1.380897, 103.967076), new LatLng(1.380242, 103.966980), new LatLng(1.380242, 103.966948),
+                new LatLng(1.380800, 103.966808), new LatLng(1.381615, 103.966787), new LatLng(1.381583, 103.965971),
+                new LatLng(1.381240, 103.966089), new LatLng(1.382055, 103.964587), new LatLng(1.381572, 103.961851),
+                new LatLng(1.381283, 103.960146), new LatLng(1.381680, 103.956283), new LatLng(1.382302, 103.952281),
+                new LatLng(1.382650, 103.951846), new LatLng(1.382543, 103.951524), new LatLng(1.382586, 103.950752),
+                new LatLng(1.382929, 103.950119), new LatLng(1.383079, 103.949293), new LatLng(1.384988, 103.945677),
+                new LatLng(1.385546, 103.944883), new LatLng(1.386157, 103.944400), new LatLng(1.388592, 103.940484),
+                new LatLng(1.389922, 103.937888), new LatLng(1.391381, 103.937030), new LatLng(1.391853, 103.937663),
+                new LatLng(1.392067, 103.937491), new LatLng(1.391670, 103.936783), new LatLng(1.391853, 103.936708),
+                new LatLng(1.392496, 103.937255), new LatLng(1.392759, 103.937083), new LatLng(1.392137, 103.936504),
+                new LatLng(1.396749, 103.934272), new LatLng(1.398403, 103.932558), new LatLng(1.398264, 103.932505),
+                new LatLng(1.399106, 103.931287), new LatLng(1.399535, 103.930257), new LatLng(1.399127, 103.928262),
+                new LatLng(1.399492, 103.926802), new LatLng(1.398055, 103.924270), new LatLng(1.393979, 103.919528),
+                new LatLng(1.390440, 103.916481), new LatLng(1.386900, 103.915044));
 
+        Polygon pasirRis = mMap.addPolygon(new PolygonOptions()
+                .addAll(pasirRisBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> tampinesBoundary = Arrays.asList(new LatLng(1.375673, 103.931959), new LatLng(1.372755, 103.930586),
+                new LatLng(1.370911, 103.930371), new LatLng(1.368079, 103.930801), new LatLng(1.361150, 103.930908),
+                new LatLng(1.359691, 103.930736), new LatLng(1.358233, 103.930393), new LatLng(1.349909, 103.925930),
+                new LatLng(1.348622, 103.924986), new LatLng(1.348065, 103.924299), new LatLng(1.346348, 103.927818),
+                new LatLng(1.342230, 103.933311), new LatLng(1.336309, 103.940349), new LatLng(1.334421, 103.949147),
+                new LatLng(1.330217, 103.952408), new LatLng(1.324382, 103.957472), new LatLng(1.314600, 103.964682),
+                new LatLng(1.315029, 103.965455), new LatLng(1.314814, 103.966313), new LatLng(1.315586, 103.968373),
+                new LatLng(1.316015, 103.970433), new LatLng(1.315930, 103.970776), new LatLng(1.316530, 103.976355),
+                new LatLng(1.315586, 103.976527), new LatLng(1.316530, 103.978673), new LatLng(1.316702, 103.981505),
+                new LatLng(1.316359, 103.984509), new LatLng(1.319276, 103.985797), new LatLng(1.321078, 103.980733),
+                new LatLng(1.322108, 103.979874), new LatLng(1.323481, 103.979960), new LatLng(1.325969, 103.980990),
+                new LatLng(1.326999, 103.980733), new LatLng(1.327600, 103.980303), new LatLng(1.335065, 103.982878),
+                new LatLng(1.336523, 103.979703), new LatLng(1.337038, 103.979788), new LatLng(1.340385, 103.972150),
+                new LatLng(1.342273, 103.970090), new LatLng(1.346906, 103.967086), new LatLng(1.350596, 103.964768),
+                new LatLng(1.357203, 103.962708), new LatLng(1.359434, 103.961678), new LatLng(1.361922, 103.959790),
+                new LatLng(1.363982, 103.957215), new LatLng(1.365612, 103.953267), new LatLng(1.366899, 103.947344),
+                new LatLng(1.367843, 103.944770), new LatLng(1.369988, 103.942109), new LatLng(1.371618, 103.940306),
+                new LatLng(1.373506, 103.936358));
+
+        Polygon tampines = mMap.addPolygon(new PolygonOptions()
+                .addAll(tampinesBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> bukitBatokBoundary = Arrays.asList(new LatLng(1.379716, 103.761252), new LatLng(1.377164, 103.755759),
+                new LatLng(1.376713, 103.754343), new LatLng(1.375297, 103.753034), new LatLng(1.373238, 103.752154),
+                new LatLng(1.372080, 103.751489), new LatLng(1.371736, 103.751188), new LatLng(1.365580, 103.744494),
+                new LatLng(1.357042, 103.737262), new LatLng(1.356012, 103.736726), new LatLng(1.354382, 103.736554),
+                new LatLng(1.353438, 103.736790), new LatLng(1.351186, 103.737777), new LatLng(1.348998, 103.738292),
+                new LatLng(1.347904, 103.738206), new LatLng(1.345994, 103.737252), new LatLng(1.345351, 103.738625),
+                new LatLng(1.345083, 103.739773), new LatLng(1.345029, 103.740620), new LatLng(1.344933, 103.741983),
+                new LatLng(1.344664, 103.743013), new LatLng(1.343924, 103.744762), new LatLng(1.340379, 103.751032),
+                new LatLng(1.333972, 103.762351), new LatLng(1.332899, 103.764325), new LatLng(1.332513, 103.765506),
+                new LatLng(1.335602, 103.765570), new LatLng(1.336031, 103.765892), new LatLng(1.335881, 103.765484),
+                new LatLng(1.336589, 103.764583), new LatLng(1.339399, 103.764154), new LatLng(1.339635, 103.764669),
+                new LatLng(1.341630, 103.764089), new LatLng(1.341909, 103.766857), new LatLng(1.342531, 103.766857),
+                new LatLng(1.342853, 103.767115), new LatLng(1.343282, 103.765935), new LatLng(1.343582, 103.765913),
+                new LatLng(1.344590, 103.765248), new LatLng(1.344740, 103.764197), new LatLng(1.346650, 103.762968),
+                new LatLng(1.347186, 103.765135), new LatLng(1.347272, 103.767067), new LatLng(1.348902, 103.770328),
+                new LatLng(1.352420, 103.769792), new LatLng(1.353707, 103.769427), new LatLng(1.355788, 103.768654),
+                new LatLng(1.356496, 103.768225), new LatLng(1.357097, 103.767710), new LatLng(1.357611, 103.767539),
+                new LatLng(1.361151, 103.767045), new LatLng(1.363511, 103.767582), new LatLng(1.364240, 103.767560),
+                new LatLng(1.364969, 103.767260), new LatLng(1.370225, 103.763848), new LatLng(1.371019, 103.763440),
+                new LatLng(1.375223, 103.762561), new LatLng(1.378055, 103.762024), new LatLng(1.378655, 103.761767));
+
+        Polygon bukiBatok = mMap.addPolygon(new PolygonOptions()
+                .addAll(bukitBatokBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> bukitPanjangBoundary = Arrays.asList(new LatLng(1.388710, 103.755160), new LatLng(1.384913, 103.757692),
+                new LatLng(1.383240, 103.759323), new LatLng(1.378478, 103.761812), new LatLng(1.377791, 103.762091),
+                new LatLng(1.371334, 103.763335), new LatLng(1.370498, 103.763700), new LatLng(1.364513, 103.767519),
+                new LatLng(1.364019, 103.767605), new LatLng(1.363419, 103.767584), new LatLng(1.361102, 103.767047),
+                new LatLng(1.357498, 103.767541), new LatLng(1.357026, 103.767777), new LatLng(1.356361, 103.768313),
+                new LatLng(1.355310, 103.768828), new LatLng(1.352371, 103.769815), new LatLng(1.350012, 103.770094),
+                new LatLng(1.348939, 103.770309), new LatLng(1.346408, 103.772133), new LatLng(1.344091, 103.775888),
+                new LatLng(1.340594, 103.778763), new LatLng(1.341511, 103.779466), new LatLng(1.341822, 103.780024),
+                new LatLng(1.343024, 103.783446), new LatLng(1.344761, 103.787330), new LatLng(1.345662, 103.788210),
+                new LatLng(1.347958, 103.786601), new LatLng(1.348151, 103.787212), new LatLng(1.349127, 103.788188),
+                new LatLng(1.348837, 103.788210), new LatLng(1.349137, 103.789519), new LatLng(1.348000, 103.789347),
+                new LatLng(1.348794, 103.790291), new LatLng(1.349266, 103.791579), new LatLng(1.351519, 103.790141),
+                new LatLng(1.352484, 103.789176), new LatLng(1.355487, 103.784798), new LatLng(1.358319, 103.782137),
+                new LatLng(1.361322, 103.780507), new LatLng(1.364025, 103.779863), new LatLng(1.368401, 103.779090),
+                new LatLng(1.382302, 103.775400), new LatLng(1.390453, 103.774327), new LatLng(1.390668, 103.765787),
+                new LatLng(1.390067, 103.761881), new LatLng(1.389230, 103.759306), new LatLng(1.388887, 103.757375),
+                new LatLng(1.388758, 103.756367));
+
+        Polygon bukitPanjang = mMap.addPolygon(new PolygonOptions()
+                .addAll(bukitPanjangBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> choaChuKangBoundary = Arrays.asList(new LatLng(1.379035, 103.732675), new LatLng(1.377018, 103.734391),
+                new LatLng(1.375431, 103.736194), new LatLng(1.374358, 103.737567), new LatLng(1.373457, 103.739198),
+                new LatLng(1.372428, 103.742674), new LatLng(1.371698, 103.745549), new LatLng(1.369124, 103.748425),
+                new LatLng(1.371870, 103.751322), new LatLng(1.372900, 103.752008), new LatLng(1.374165, 103.752394),
+                new LatLng(1.375967, 103.753467), new LatLng(1.376825, 103.754411), new LatLng(1.377254, 103.755956),
+                new LatLng(1.379743, 103.761192), new LatLng(1.383303, 103.759304), new LatLng(1.384848, 103.757759),
+                new LatLng(1.387787, 103.755635), new LatLng(1.388709, 103.755162), new LatLng(1.388967, 103.753231),
+                new LatLng(1.392163, 103.752909), new LatLng(1.397612, 103.752051), new LatLng(1.399542, 103.751987),
+                new LatLng(1.401816, 103.752373), new LatLng(1.403167, 103.752867), new LatLng(1.403725, 103.752791),
+                new LatLng(1.404165, 103.752352), new LatLng(1.404894, 103.750560), new LatLng(1.404894, 103.750560),
+                new LatLng(1.405581, 103.746107), new LatLng(1.403736, 103.744477), new LatLng(1.402910, 103.743983),
+                new LatLng(1.401526, 103.743500), new LatLng(1.399639, 103.743189), new LatLng(1.396850, 103.742835),
+                new LatLng(1.396013, 103.742620), new LatLng(1.395574, 103.742481), new LatLng(1.395021, 103.742207),
+                new LatLng(1.392265, 103.740587), new LatLng(1.392163, 103.740550), new LatLng(1.390575, 103.740142),
+                new LatLng(1.389481, 103.740314), new LatLng(1.388902, 103.740507), new LatLng(1.386650, 103.741558),
+                new LatLng(1.381094, 103.735121));
+
+        Polygon choaChuKang = mMap.addPolygon(new PolygonOptions()
+                .addAll(choaChuKangBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> clementiBoundary = Arrays.asList(new LatLng(1.341725, 103.748751), new LatLng(1.341274, 103.748493),
+                new LatLng(1.340824, 103.748665), new LatLng(1.338764, 103.748751), new LatLng(1.330655, 103.749480),
+                new LatLng(1.326719, 103.750006), new LatLng(1.322943, 103.751937), new LatLng(1.322579, 103.752012),
+                new LatLng(1.321292, 103.751680), new LatLng(1.313011, 103.747238), new LatLng(1.309793, 103.747324),
+                new LatLng(1.309547, 103.747539), new LatLng(1.309450, 103.747968), new LatLng(1.309364, 103.749899),
+                new LatLng(1.308506, 103.751894), new LatLng(1.307691, 103.753053), new LatLng(1.305996, 103.754190),
+                new LatLng(1.304355, 103.754094), new LatLng(1.298536, 103.756986), new LatLng(1.301690, 103.762190),
+                new LatLng(1.293806, 103.765773), new LatLng(1.292744, 103.766331), new LatLng(1.292133, 103.766728),
+                new LatLng(1.291596, 103.767340), new LatLng(1.293881, 103.769024), new LatLng(1.294653, 103.769432),
+                new LatLng(1.295029, 103.769539), new LatLng(1.300113, 103.769850), new LatLng(1.300832, 103.770086),
+                new LatLng(1.302773, 103.771009), new LatLng(1.303513, 103.771181), new LatLng(1.304543, 103.771234),
+                new LatLng(1.306559, 103.771256), new LatLng(1.307128, 103.771342), new LatLng(1.312180, 103.772296),
+                new LatLng(1.316492, 103.771739), new LatLng(1.320332, 103.770805), new LatLng(1.321018, 103.770794),
+                new LatLng(1.321801, 103.771073), new LatLng(1.324482, 103.772887), new LatLng(1.324922, 103.773681),
+                new LatLng(1.325501, 103.774989), new LatLng(1.326488, 103.775665), new LatLng(1.329663, 103.769625),
+                new LatLng(1.329749, 103.769292), new LatLng(1.330446, 103.768810), new LatLng(1.331057, 103.768177),
+                new LatLng(1.331369, 103.767662), new LatLng(1.332141, 103.765409), new LatLng(1.332870, 103.764454),
+                new LatLng(1.337182, 103.756632), new LatLng(1.340325, 103.751086), new LatLng(1.341333, 103.749401));
+
+        Polygon clementi = mMap.addPolygon(new PolygonOptions()
+                .addAll(clementiBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
+
+        List<LatLng> jurongEastBoundary = Arrays.asList(new LatLng(1.353480, 103.728186), new LatLng(1.344556, 103.728186),
+                new LatLng(1.345114, 103.723937), new LatLng(1.344942, 103.721877), new LatLng(1.344256, 103.721834),
+                new LatLng(1.343141, 103.721405), new LatLng(1.341939, 103.721405), new LatLng(1.340824, 103.722649),
+                new LatLng(1.338250, 103.724366), new LatLng(1.337306, 103.724967), new LatLng(1.335504, 103.725053),
+                new LatLng(1.329669, 103.724795), new LatLng(1.328553, 103.724795), new LatLng(1.325293, 103.725911),
+                new LatLng(1.323491, 103.719645), new LatLng(1.320831, 103.720246), new LatLng(1.318428, 103.720332),
+                new LatLng(1.314395, 103.719388), new LatLng(1.314738, 103.717414), new LatLng(1.314052, 103.709753),
+                new LatLng(1.310019, 103.710118), new LatLng(1.309890, 103.709603), new LatLng(1.308174, 103.709689),
+                new LatLng(1.308431, 103.710719), new LatLng(1.307316, 103.711320), new LatLng(1.297362, 103.711062),
+                new LatLng(1.297362, 103.711921), new LatLng(1.299765, 103.711921), new LatLng(1.299593, 103.721963),
+                new LatLng(1.299979, 103.721920), new LatLng(1.299958, 103.720354), new LatLng(1.301073, 103.721298),
+                new LatLng(1.305964, 103.715461), new LatLng(1.306479, 103.712629), new LatLng(1.307423, 103.712114),
+                new LatLng(1.308968, 103.712114), new LatLng(1.308539, 103.715719), new LatLng(1.303047, 103.722242),
+                new LatLng(1.300902, 103.726962), new LatLng(1.301674, 103.729967), new LatLng(1.299443, 103.738550),
+                new LatLng(1.299443, 103.740095), new LatLng(1.299872, 103.741296), new LatLng(1.301588, 103.743099),
+                new LatLng(1.300644, 103.744472), new LatLng(1.299271, 103.743871), new LatLng(1.298156, 103.743957),
+                new LatLng(1.297641, 103.745073), new LatLng(1.296440, 103.749450), new LatLng(1.297469, 103.755544),
+                new LatLng(1.298585, 103.757089), new LatLng(1.304334, 103.754257), new LatLng(1.306393, 103.753999),
+                new LatLng(1.308453, 103.752197), new LatLng(1.309568, 103.749536), new LatLng(1.309740, 103.747219),
+                new LatLng(1.313172, 103.747304), new LatLng(1.322525, 103.751939), new LatLng(1.326730, 103.750137),
+                new LatLng(1.341146, 103.748592), new LatLng(1.341832, 103.748592), new LatLng(1.344921, 103.742755),
+                new LatLng(1.345178, 103.739065), new LatLng(1.346637, 103.736318), new LatLng(1.350928, 103.732370),
+                new LatLng(1.352558, 103.730224));
+
+        Polygon jurongEast = mMap.addPolygon(new PolygonOptions()
+                .addAll(jurongEastBoundary)
+                .strokeColor(Color.RED)
+                .strokeWidth(STROKE_WIDTH)
+                .fillColor(FILL_COLOR));
     }
 }
