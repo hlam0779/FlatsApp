@@ -619,85 +619,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR));
-<<<<<<< HEAD
-=======
-        List<LatLng> geylangBoundary = Arrays.asList(new LatLng(1.327813, 103.868839),new LatLng(1.328083, 103.869388),new LatLng(1.328024, 103.869510),new LatLng(1.328519, 103.870403),
-                new LatLng(1.328718, 103.871395), new LatLng(1.329114, 103.872485), new LatLng(1.329412, 103.873080), new LatLng(1.329511, 103.873874),
-                new LatLng(1.329709, 103.874568), new LatLng(1.330205, 103.875460), new LatLng(1.330553, 103.876930),new LatLng(1.330884, 103.877758),
-                new LatLng(1.331050, 103.878420), new LatLng(1.331464, 103.879413), new LatLng(1.331546, 103.880241), new LatLng(1.331795, 103.881069),
-                new LatLng(1.332043, 103.881814), new LatLng(1.332208, 103.882559), new LatLng(1.332291, 103.883305), new LatLng(1.332540, 103.884132),
-                new LatLng(1.332705, 103.884878), new LatLng(1.332871, 103.885623), new LatLng(1.332953, 103.886368), new LatLng(1.333202, 103.887361),
-                new LatLng(1.333533, 103.888189), new LatLng(1.333578, 103.888918), new LatLng(1.333717, 103.889541), new LatLng(1.333993, 103.890370),
-                new LatLng(1.334270, 103.890992), new LatLng(1.334684, 103.891891), new LatLng(1.334961, 103.892513), new LatLng(1.335168, 103.893135),
-                new LatLng(1.335582, 103.893688), new LatLng(1.335928, 103.894241), new LatLng(1.336274, 103.894794), new LatLng(1.336826, 103.895346),
-                new LatLng(1.337045, 103.895512), new LatLng(1.337506, 103.895916), new LatLng(1.337759, 103.896128), new LatLng(1.337736, 103.896148),
-                new LatLng(1.337774, 103.896635), new LatLng(1.337431, 103.896635), new LatLng(1.336745, 103.897150), new LatLng(1.336487, 103.897665),
-                new LatLng(1.335801, 103.898351), new LatLng(1.335715, 103.898437), new LatLng(1.334771, 103.899296), new LatLng(1.334342, 103.899639),
-                new LatLng(1.333902, 103.900154), new LatLng(1.333741, 103.900498), new LatLng(1.333140, 103.900927), new LatLng(1.332711, 103.901442),
-                new LatLng(1.332197, 103.901871), new LatLng(1.331596, 103.902472), new LatLng(1.331081, 103.903073), new LatLng(1.330395, 103.903931),
-                new LatLng(1.329794, 103.904360), new LatLng(1.329107, 103.904961), new LatLng(1.329365, 103.904961), new LatLng(1.328764, 103.905304),
-                new LatLng(1.328192, 103.905622), new LatLng(1.327740, 103.905763), new LatLng(1.327022, 103.905704), new LatLng(1.326364, 103.905823),
-                new LatLng(1.325826, 103.905883), new LatLng(1.325049, 103.905524), new LatLng(1.324451, 103.905464), new LatLng(1.323673, 103.905404),
-                new LatLng(1.323015, 103.905345), new LatLng(1.322417, 103.905285), new LatLng(1.321759, 103.905225), new LatLng(1.321101, 103.905045),
-                new LatLng(1.320444, 103.905045), new LatLng(1.319846, 103.904926), new LatLng(1.319247, 103.904926), new LatLng(1.318829, 103.904986),
-                new LatLng(1.318291, 103.904926), new LatLng(1.317752, 103.904986), new LatLng(1.317094, 103.905165), new LatLng(1.317008, 103.905218),
-                new LatLng(1.316321, 103.905304), new LatLng(1.315721, 103.905562), new LatLng(1.315206, 103.905819), new LatLng(1.314519, 103.905991),
-                new LatLng(1.313747, 103.906420), new LatLng(1.313216, 103.906741), new LatLng(1.313124, 103.906478), new LatLng(1.309606, 103.901632),
-                new LatLng(1.309606, 103.901632), new LatLng(1.309606, 103.901632), new LatLng(1.309569, 103.901568), new LatLng(1.309536, 103.901453),
-                new LatLng(1.309603, 103.894556), new LatLng(1.308058, 103.886072), new LatLng(1.306052, 103.882202), new LatLng(1.307918, 103.878376),
-                new LatLng(1.308196, 103.877645), new LatLng(1.308440, 103.876705), new LatLng(1.308718, 103.876114), new LatLng(1.308858, 103.875986),
-                new LatLng(1.310398, 103.875551), new LatLng(1.313303, 103.874998), new LatLng(1.314436, 103.874824), new LatLng(1.315801, 103.874708),
-                new LatLng(1.316615, 103.874679), new LatLng(1.317428, 103.874766), new LatLng(1.318416, 103.874998), new LatLng(1.319288, 103.875376),
-                new LatLng(1.319863, 103.875920), new LatLng(1.320095, 103.876240), new LatLng(1.320299, 103.875688), new LatLng(1.320531, 103.875252),
-                new LatLng(1.320996, 103.874787), new LatLng(1.326283, 103.870690), new LatLng(1.327823, 103.868830));
-        Polygon geylang = mMap.addPolygon(new PolygonOptions().addAll(geylangBoundary).strokeColor(Color.RED).strokeWidth(2).fillColor(FILL_COLOR));
-
-        List<LatLng> kallangBoundary = Arrays.asList(new LatLng(1.330371, 103.862313), new LatLng(1.329242, 103.865130), new LatLng(1.328446, 103.867554), new LatLng(1.328342, 103.868072),
-                new LatLng(1.326987, 103.869839), new LatLng(1.326358, 103.870568), new LatLng(1.321112, 103.874669), new LatLng(1.320538, 103.875280),
-                new LatLng(1.320049, 103.876252), new LatLng(1.319913, 103.875994), new LatLng(1.319291, 103.875342), new LatLng(1.318608, 103.875069),
-                new LatLng(1.317668, 103.874811), new LatLng(1.316758, 103.874720), new LatLng(1.316075, 103.874659), new LatLng(1.314194, 103.874811),
-                new LatLng(1.310372, 103.875570), new LatLng(1.308931, 103.875949), new LatLng(1.308749, 103.876086), new LatLng(1.308673, 103.876146),
-                new LatLng(1.308460, 103.876617), new LatLng(1.308244, 103.877470), new LatLng(1.308092, 103.877964), new LatLng(1.307598, 103.879142),
-                new LatLng(1.306977, 103.880725), new LatLng(1.306521, 103.881574), new LatLng(1.306103, 103.882157), new LatLng(1.304445, 103.883879),
-                new LatLng(1.303887, 103.884323), new LatLng(1.303419, 103.884513), new LatLng(1.302798, 103.884601), new LatLng(1.302317, 103.884779),
-                new LatLng(1.302026, 103.885007), new LatLng(1.301608, 103.885374), new LatLng(1.301215, 103.885501), new LatLng(1.300810, 103.885513),
-                new LatLng(1.297961, 103.885311), new LatLng(1.295782, 103.885278), new LatLng(1.295254, 103.871117), new LatLng(1.294022, 103.864377),
-                new LatLng(1.294084, 103.863026), new LatLng(1.294154, 103.862623), new LatLng(1.294294, 103.862220), new LatLng(1.294912, 103.861617),
-                new LatLng(1.295632, 103.861153), new LatLng(1.296498, 103.861024), new LatLng(1.297860, 103.860854), new LatLng(1.298124, 103.860692),
-                new LatLng(1.299767, 103.859440), new LatLng(1.300505, 103.860351), new LatLng(1.301098, 103.861382), new LatLng(1.301526, 103.862275),
-                new LatLng(1.304876, 103.860269), new LatLng(1.305578, 103.859838), new LatLng(1.305741, 103.859695), new LatLng(1.306486, 103.858930),
-                new LatLng(1.306787, 103.858702), new LatLng(1.307129, 103.858325), new LatLng(1.310630, 103.854469), new LatLng(1.311814, 103.855353),
-                new LatLng(1.312627, 103.854881), new LatLng(1.312867, 103.854655), new LatLng(1.313601, 103.854316), new LatLng(1.312764, 103.853515),
-                new LatLng(1.312269, 103.853185), new LatLng(1.311974, 103.853079), new LatLng(1.312328, 103.852619), new LatLng(1.311609, 103.852548),
-                new LatLng(1.306704, 103.848825), new LatLng(1.308412, 103.846845), new LatLng(1.309897, 103.845714), new LatLng(1.310226, 103.845196),
-                new LatLng(1.310568, 103.844288), new LatLng(1.311713, 103.844713), new LatLng(1.312729, 103.844883), new LatLng(1.313279, 103.845052),
-                new LatLng(1.314959, 103.845885), new LatLng(1.315622, 103.846351), new LatLng(1.316285, 103.847042), new LatLng(1.317118, 103.848313),
-                new LatLng(1.317089, 103.848313), new LatLng(1.318966, 103.852548), new LatLng(1.319418, 103.853465), new LatLng(1.320928, 103.855597),
-                new LatLng(1.322001, 103.856655), new LatLng(1.323313, 103.857770), new LatLng(1.325839, 103.860424), new LatLng(1.326361, 103.860961),
-                new LatLng(1.327321, 103.861666), new LatLng(1.328041, 103.861977), new LatLng(1.328563, 103.862146), new LatLng(1.329057, 103.862302),
-                new LatLng(1.329805, 103.862372), new LatLng(1.330474, 103.862346));
-        Polygon kallang = mMap.addPolygon(new PolygonOptions().addAll(kallangBoundary).strokeColor(Color.RED).strokeWidth(2).fillColor(FILL_COLOR));
-
-        List<LatLng> marineParadeBoundary = Arrays.asList(new LatLng(1.284217, 103.880543), new LatLng(1.286421, 103.882963), new LatLng(1.287089, 103.883915), new LatLng(1.287342, 103.884816),
-                new LatLng(1.287342, 103.885556), new LatLng(1.288628, 103.886467), new LatLng(1.290552, 103.888776), new LatLng(1.290714, 103.889464),
-                new LatLng(1.290380, 103.889839), new LatLng(1.293498, 103.893383), new LatLng(1.293741, 103.894092), new LatLng(1.293619, 103.894356),
-                new LatLng(1.293265, 103.894305), new LatLng(1.293994, 103.895419), new LatLng(1.294130, 103.896201), new LatLng(1.293716, 103.896556),
-                new LatLng(1.294916, 103.897841), new LatLng(1.296598, 103.901569), new LatLng(1.298948, 103.910582), new LatLng(1.299590, 103.912070),
-                new LatLng(1.299607, 103.912332), new LatLng(1.299497, 103.912340), new LatLng(1.299658, 103.912678), new LatLng(1.299739, 103.912611),
-                new LatLng(1.300656, 103.915194), new LatLng(1.300640, 103.915103), new LatLng(1.300824, 103.915174), new LatLng(1.300993, 103.915395),
-                new LatLng(1.301626, 103.917036), new LatLng(1.301601, 103.917408), new LatLng(1.301525, 103.917577), new LatLng(1.301677, 103.917889),
-                new LatLng(1.301863, 103.919098), new LatLng(1.301863, 103.919335), new LatLng(1.304401, 103.918769), new LatLng(1.304679, 103.918734),
-                new LatLng(1.307428, 103.917968), new LatLng(1.307324, 103.917080), new LatLng(1.305775, 103.910710), new LatLng(1.305496, 103.909953),
-                new LatLng(1.308524, 103.908413), new LatLng(1.309125, 103.908180), new LatLng(1.310502, 103.907908), new LatLng(1.313139, 103.906764),
-                new LatLng(1.313110, 103.906448), new LatLng(1.309610, 103.901663), new LatLng(1.309563, 103.901463), new LatLng(1.309518, 103.901259),
-                new LatLng(1.309496, 103.901214), new LatLng(1.309593, 103.894586), new LatLng(1.307884, 103.886101), new LatLng(1.306057, 103.882213),
-                new LatLng(1.304461, 103.883900), new LatLng(1.303891, 103.884325), new LatLng(1.303430, 103.884519), new LatLng(1.302751, 103.884628),
-                new LatLng(1.302545, 103.884701), new LatLng(1.302351, 103.884786), new LatLng(1.302060, 103.884992), new LatLng(1.301562, 103.885392),
-                new LatLng(1.301199, 103.885514), new LatLng(1.300835, 103.885502), new LatLng(1.297912, 103.885308), new LatLng(1.295804, 103.885318),
-                new LatLng(1.295543, 103.877254), new LatLng(1.294802, 103.876251), new LatLng(1.294221, 103.875830), new LatLng(1.293495, 103.875641),
-                new LatLng(1.290691, 103.875714), new LatLng(1.289195, 103.876498), new LatLng(1.288120, 103.877574), new LatLng(1.284198, 103.880523));
-        Polygon marineParade = mMap.addPolygon(new PolygonOptions().addAll(marineParadeBoundary).strokeColor(Color.RED).strokeWidth(2).fillColor(FILL_COLOR));
->>>>>>> 2f977e473af5559d0ad2b73216db58300210b30a
 
         List<LatLng> queenstownBoundary = Arrays.asList(new LatLng(1.255067, 103.785491), new LatLng(1.267406, 103.792746), new LatLng(1.269740, 103.796498), new LatLng(1.271908, 103.797832),
                 new LatLng(1.270741, 103.800000), new LatLng(1.272741, 103.801001), new LatLng(1.272575, 103.802169), new LatLng(1.275274, 103.801962),
@@ -728,16 +649,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.283712, 103.772150), new LatLng(1.278011, 103.768830), new LatLng(1.285299, 103.756416), new LatLng(1.284794, 103.753240),
                 new LatLng(1.280681, 103.750858), new LatLng(1.276568, 103.757787), new LatLng(1.276135, 103.757498), new LatLng(1.268342, 103.770562),
                 new LatLng(1.279527, 103.777347), new LatLng(1.273682, 103.787163), new LatLng(1.259213, 103.778517));
-<<<<<<< HEAD
 
         Polygon queenstown = mMap.addPolygon(new PolygonOptions()
                 .addAll(queenstownBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR));
-=======
-        Polygon queenstown = mMap.addPolygon(new PolygonOptions().addAll(queenstownBoundary).strokeColor(Color.RED).strokeWidth(2).fillColor(FILL_COLOR));
->>>>>>> 2f977e473af5559d0ad2b73216db58300210b30a
 
         List<LatLng> toaPayohBoundary = Arrays.asList(new LatLng(1.341761, 103.835816), new LatLng(1.343563, 103.839077), new LatLng(1.344940, 103.840392), new LatLng(1.345060, 103.840990),
                 new LatLng(1.345000, 103.840990), new LatLng(1.345060, 103.841947), new LatLng(1.344462, 103.843024), new LatLng(1.343983, 103.844280),
@@ -752,60 +669,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.329684, 103.840068), new LatLng(1.330685, 103.839110), new LatLng(1.333602, 103.837900), new LatLng(1.334644, 103.837150),
                 new LatLng(1.335103, 103.836983), new LatLng(1.337312, 103.837275), new LatLng(1.338563, 103.837233), new LatLng(1.338913, 103.837365),
                 new LatLng(1.339930, 103.836958), new LatLng(1.341760, 103.835912));
-<<<<<<< HEAD
 
         Polygon toaPayoh= mMap.addPolygon(new PolygonOptions()
                 .addAll(toaPayohBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR));
-=======
-        Polygon toaPayoh= mMap.addPolygon(new PolygonOptions().addAll(toaPayohBoundary).strokeColor(Color.RED).strokeWidth(2).fillColor(FILL_COLOR));
-
-        List<LatLng> jurongWestBoundary = Arrays.asList(new LatLng(1.330931, 103.674811), new LatLng(1.330416, 103.676012),
-                new LatLng(1.330245, 103.679445), new LatLng(1.327756, 103.679274), new LatLng(1.327585, 103.706053),
-                new LatLng(1.327842, 103.706911), new LatLng(1.331618, 103.721073), new LatLng(1.330416, 103.720988),
-                new LatLng(1.329730, 103.720988), new LatLng(1.325954, 103.719099), new LatLng(1.323637, 103.719528),
-                new LatLng(1.325182, 103.726052), new LatLng(1.328099, 103.724807), new LatLng(1.329451, 103.724743),
-                new LatLng(1.336944, 103.725016), new LatLng(1.337431, 103.724905), new LatLng(1.340756, 103.722759),
-                new LatLng(1.341478, 103.721681), new LatLng(1.341947, 103.721410), new LatLng(1.342344, 103.721356),
-                new LatLng(1.343306, 103.721540), new LatLng(1.343874, 103.721852), new LatLng(1.344906, 103.721836),
-                new LatLng(1.345088, 103.723566), new LatLng(1.344360, 103.727117), new LatLng(1.344375, 103.728239),
-                new LatLng(1.353526, 103.728273), new LatLng(1.354304, 103.726882), new LatLng(1.354929, 103.725236),
-                new LatLng(1.355413, 103.722837), new LatLng(1.355758, 103.718168), new LatLng(1.355924, 103.717504),
-                new LatLng(1.356906, 103.715054), new LatLng(1.357454, 103.714008), new LatLng(1.364406, 103.706417),
-                new LatLng(1.362888, 103.704669), new LatLng(1.347097, 103.691674), new LatLng(1.339814, 103.682398),
-                new LatLng(1.339571, 103.681850), new LatLng(1.339444, 103.681224), new LatLng(1.339252, 103.678660),
-                new LatLng(1.338946, 103.678175), new LatLng(1.338413, 103.677588), new LatLng(1.337762, 103.677237),
-                new LatLng(1.331984, 103.675553), new LatLng(1.331436, 103.675272)
-        );
-        Polygon jurongWest = mMap.addPolygon(new PolygonOptions()
-                .addAll(jurongWestBoundary)
-                .strokeColor(Color.RED).strokeWidth(STROKE_WIDTH).fillColor(FILL_COLOR));
-
-        List<LatLng> bishanBoundary = Arrays.asList(new LatLng(1.341777, 103.835914), new LatLng(1.343664, 103.839175),
-                new LatLng(1.344866, 103.840506), new LatLng(1.345123, 103.841278), new LatLng(1.344994, 103.842008),
-                new LatLng(1.343965, 103.844626), new LatLng(1.343278, 103.853552), new LatLng(1.343450, 103.860376),
-                new LatLng(1.353618, 103.856900), new LatLng(1.355506, 103.856857), new LatLng(1.356493, 103.854925),
-                new LatLng(1.359410, 103.853252), new LatLng(1.362628, 103.849475), new LatLng(1.364044, 103.846171),
-                new LatLng(1.364644, 103.840935), new LatLng(1.367733, 103.831923), new LatLng(1.367991, 103.828318),
-                new LatLng(1.367507, 103.828281), new LatLng(1.367327, 103.828344), new LatLng(1.366623, 103.828263),
-                new LatLng(1.365893, 103.827740), new LatLng(1.365848, 103.827189), new LatLng(1.364603, 103.826946),
-                new LatLng(1.364603, 103.826431), new LatLng(1.364396, 103.826341), new LatLng(1.364955, 103.824230),
-                new LatLng(1.364486, 103.824068), new LatLng(1.364053, 103.823418), new LatLng(1.363629, 103.823436),
-                new LatLng(1.363007, 103.820161), new LatLng(1.360075, 103.817725), new LatLng(1.357370, 103.818402),
-                new LatLng(1.356531, 103.819178), new LatLng(1.353410, 103.824095), new LatLng(1.354330, 103.826603),
-                new LatLng(1.353383, 103.829147), new LatLng(1.351494, 103.831316), new LatLng(1.349674, 103.832467),
-                new LatLng(1.346793, 103.836146), new LatLng(1.345829, 103.836796), new LatLng(1.345052, 103.836746),
-                new LatLng(1.344019, 103.836510), new LatLng(1.342956, 103.835901), new LatLng(1.342360, 103.835772),
-                new LatLng(1.341728, 103.835901)
-        );
-
-        Polygon bishan = mMap.addPolygon(new PolygonOptions()
-                .addAll(bishanBoundary)
-                .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH).fillColor(FILL_COLOR));
->>>>>>> 2f977e473af5559d0ad2b73216db58300210b30a
 
         List<LatLng> bukitMerahBoundary = Arrays.asList(new LatLng(1.262384, 103.804998), new LatLng(1.262534, 103.805341),
                 new LatLng(1.262838, 103.805389), new LatLng(1.263816, 103.805230), new LatLng(1.263589, 103.805534),
@@ -857,13 +726,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon bukitMerah = mMap.addPolygon(new PolygonOptions()
                 .addAll(bukitMerahBoundary)
                 .strokeColor(Color.RED)
-<<<<<<< HEAD
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
-=======
-                .strokeWidth(STROKE_WIDTH).fillColor(FILL_COLOR));
->>>>>>> 2f977e473af5559d0ad2b73216db58300210b30a
 
         List<LatLng> bukitTimahBoundary = Arrays.asList(new LatLng(1.307255, 103.802277), new LatLng(1.314720, 103.804595),
                 new LatLng(1.319011, 103.809402), new LatLng(1.321413, 103.812921), new LatLng(1.328278, 103.814037),
@@ -891,7 +756,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Polygon bukitTimah = mMap.addPolygon(new PolygonOptions()
                 .addAll(bukitTimahBoundary)
                 .strokeColor(Color.RED)
-<<<<<<< HEAD
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
@@ -979,44 +843,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
-=======
-                .strokeWidth(STROKE_WIDTH).fillColor(FILL_COLOR));
-
-        List<LatLng> sembawangBoundary = Arrays.asList(new LatLng(1.461502, 103.790689), new LatLng(1.465421, 103.796820), new LatLng(1.465421, 103.796820),
-                                                    new LatLng(1.465578, 103.796689), new LatLng(1.465664, 103.797035), new LatLng(1.466269, 103.797856),
-                                                    new LatLng(1.466525, 103.797699), new LatLng(1.466712, 103.797982), new LatLng(1.466677, 103.798227),
-                                                    new LatLng(1.467080, 103.798981), new LatLng(1.466852, 103.799735), new LatLng(1.468114, 103.801243),
-                                                    new LatLng(1.468534, 103.801506), new LatLng(1.468674, 103.801979), new LatLng(1.468990, 103.802435),
-                                                    new LatLng(1.470637, 103.808794), new LatLng(1.469891, 103.809658), new LatLng(1.470534, 103.812453),
-                                                    new LatLng(1.470622, 103.818014), new LatLng(1.470530, 103.818549), new LatLng(1.470039, 103.819811),
-                                                    new LatLng(1.469128, 103.821557), new LatLng(1.468804, 103.822579), new LatLng(1.467834, 103.821642),
-                                                    new LatLng(1.467749, 103.821191), new LatLng(1.467051, 103.820177), new LatLng(1.464539, 103.817955),
-                                                    new LatLng(1.463918, 103.818960), new LatLng(1.464727, 103.819726), new LatLng(1.465084, 103.819896),
-                                                    new LatLng(1.465552, 103.820194), new LatLng(1.466685, 103.821974), new LatLng(1.466523, 103.822179),
-                                                    new LatLng(1.466310, 103.822051), new LatLng(1.465791, 103.822536), new LatLng(1.466123, 103.823141),
-                                                    new LatLng(1.465595, 103.823805), new LatLng(1.465910, 103.824086), new LatLng(1.465799, 103.824239),
-                                                    new LatLng(1.464233, 103.823192), new LatLng(1.463457, 103.824474), new LatLng(1.468726, 103.827497),
-                                                    new LatLng(1.464821, 103.834301), new LatLng(1.460707, 103.831949), new LatLng(1.460119, 103.832894),
-                                                    new LatLng(1.464171, 103.835246), new LatLng(1.464297, 103.835834), new LatLng(1.464154, 103.836593),
-                                                    new LatLng(1.464059, 103.836725), new LatLng(1.464022, 103.836945), new LatLng(1.464144, 103.837019),
-                                                    new LatLng(1.464413, 103.837129), new LatLng(1.464376, 103.837214), new LatLng(1.464083, 103.837129),
-                                                    new LatLng(1.462508, 103.839658), new LatLng(1.462410, 103.839670), new LatLng(1.461799, 103.840525),
-                                                    new LatLng(1.460627, 103.841576), new LatLng(1.460712, 103.841747), new LatLng(1.460724, 103.841857),
-                                                    new LatLng(1.460627, 103.842358), new LatLng(1.460675, 103.842468), new LatLng(1.459454, 103.844313),
-                                                    new LatLng(1.459405, 103.844496), new LatLng(1.459552, 103.844630), new LatLng(1.459503, 103.844740),
-                                                    new LatLng(1.459307, 103.844594), new LatLng(1.451497, 103.832991), new LatLng(1.445203, 103.836577),
-                                                    new LatLng(1.441369, 103.830406), new LatLng(1.440910, 103.829906), new LatLng(1.440160, 103.829489),
-                                                    new LatLng(1.438368, 103.829072), new LatLng(1.437034, 103.828572), new LatLng(1.436284, 103.827738),
-                                                    new LatLng(1.435136, 103.824908), new LatLng(1.435136, 103.824209), new LatLng(1.435336, 103.823160),
-                                                    new LatLng(1.435835, 103.822561), new LatLng(1.440379, 103.818765), new LatLng(1.441826, 103.816768),
-                                                    new LatLng(1.443125, 103.814470), new LatLng(1.445671, 103.808177), new LatLng(1.446220, 103.807079),
-                                                    new LatLng(1.448517, 103.803982), new LatLng(1.449515, 103.803283), new LatLng(1.453409, 103.801485),
-                                                    new LatLng(1.456654, 103.800387), new LatLng(1.455606, 103.797490), new LatLng(1.457553, 103.794843),
-                                                    new LatLng(1.458552, 103.793944), new LatLng(1.460050, 103.793295), new LatLng(1.459900, 103.792396));
-        Polygon sembawang = mMap.addPolygon(new PolygonOptions()
-                .addAll(sembawangBoundary)
-                .strokeColor(Color.RED)
-                .strokeWidth(STROKE_WIDTH).fillColor(FILL_COLOR));
->>>>>>> 2f977e473af5559d0ad2b73216db58300210b30a
     }
 }
