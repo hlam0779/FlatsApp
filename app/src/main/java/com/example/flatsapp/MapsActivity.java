@@ -1,16 +1,25 @@
 package com.example.flatsapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Dash;
 import com.google.android.gms.maps.model.Gap;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
@@ -19,6 +28,7 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -31,6 +41,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final PatternItem DASH = new Dash(PATTERN_DASH_LENGTH_PX);
     private static final int STROKE_WIDTH = 2;
     private static final int FILL_COLOR = 0x20ffff00;
+
+    private Polygon pre_region=null;
+    private static HashMap<Polygon, String> hm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +70,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         LatLng singaporeCenter = new LatLng(1.359443, 103.848104);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(singaporeCenter, 10f));
+        Marker test = mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(1.359443, 103.848104))
+                .title("Chinam")
+                .snippet("Adress:\nPhone:\n"));
 
+        hm = new HashMap<Polygon, String>();
         List<LatLng> woodLandsBoudary = Arrays.asList(new LatLng(1.461403, 103.790672), new LatLng(1.458014, 103.785458),
                 new LatLng(1.455032, 103.782304), new LatLng(1.452994, 103.778827), new LatLng(1.452718, 103.778365),
                 new LatLng(1.451903, 103.777324), new LatLng(1.451313, 103.777131), new LatLng(1.450884, 103.774738),
@@ -77,11 +95,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.460894, 103.791232));
 
 
-        Polygon woodlands = mMap.addPolygon(new PolygonOptions()
+        final Polygon woodlands = mMap.addPolygon(new PolygonOptions()
                 .addAll(woodLandsBoudary)
                 .strokeColor(Color.RED).strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(woodlands, "WOODLANDS");
 
         List<LatLng> angMokioBoundary = Arrays.asList(new LatLng(1.355501, 103.856891), new LatLng(1.356918, 103.857017),
                 new LatLng(1.368030, 103.860837), new LatLng(1.369424, 103.860923), new LatLng(1.370851, 103.860590),
@@ -115,6 +134,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(angMoKio, "ANG MO KIO");
 
         List<LatLng> hougangBoundary = Arrays.asList(new LatLng(1.386931, 103.873637), new LatLng(1.384474, 103.876513),
                 new LatLng(1.383393, 103.876880), new LatLng(1.378407, 103.876656), new LatLng(1.377999, 103.876707),
@@ -147,7 +167,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
-
+        hm.put(hougang, "HOUGANG");
 
         List<LatLng> punggolBoundary = Arrays.asList(new LatLng(1.401158, 103.886884), new LatLng(1.400142, 103.894405),
                 new LatLng(1.399724, 103.896916), new LatLng(1.399037, 103.899233), new LatLng(1.397783, 103.902044),
@@ -175,6 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(punggol, "PUNGGOL");
 
         List<LatLng> sengkangBoundary = Arrays.asList(new LatLng(1.397052, 103.852186), new LatLng(1.397668, 103.854085),
                 new LatLng(1.397697, 103.855412), new LatLng(1.397122, 103.856547), new LatLng(1.395944, 103.857549),
@@ -203,6 +224,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(sengkang, "SENGKANG");
 
         List<LatLng> serangoonBoundary = Arrays.asList(new LatLng(1.391094, 103.858123), new LatLng(1.384155, 103.858394),
                 new LatLng(1.378629, 103.858323), new LatLng(1.377769, 103.858347), new LatLng(1.375154, 103.858854),
@@ -235,6 +257,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(serangoon, "SERANGOON");
 
         List<LatLng> bedokBoundary = Arrays.asList(new LatLng(1.337750, 103.896175), new LatLng(1.329449, 103.904826),
                 new LatLng(1.328253, 103.905612), new LatLng(1.327048, 103.905844), new LatLng(1.326037, 103.905830),
@@ -281,6 +304,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
+        hm.put(bedok, "BEDOK");
+
         List<LatLng> pasirRisBoundary = Arrays.asList(new LatLng(1.385921, 103.914231), new LatLng(1.380988, 103.918823),
                 new LatLng(1.379701, 103.920754), new LatLng(1.378113, 103.924831), new LatLng(1.377255, 103.928414),
                 new LatLng(1.374145, 103.935431), new LatLng(1.371292, 103.940581), new LatLng(1.369768, 103.942405),
@@ -312,12 +337,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.399492, 103.926802), new LatLng(1.398055, 103.924270), new LatLng(1.393979, 103.919528),
                 new LatLng(1.390440, 103.916481), new LatLng(1.386900, 103.915044));
 
-        Polygon pasirRis = mMap.addPolygon(new PolygonOptions()
+        final Polygon pasirRis = mMap.addPolygon(new PolygonOptions()
                 .addAll(pasirRisBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+
+        hm.put(pasirRis, "PASIR RIS");
 
         List<LatLng> tampinesBoundary = Arrays.asList(new LatLng(1.375673, 103.931959), new LatLng(1.372755, 103.930586),
                 new LatLng(1.370911, 103.930371), new LatLng(1.368079, 103.930801), new LatLng(1.361150, 103.930908),
@@ -344,6 +371,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+
+        hm.put(tampines, "TAMPINES");
 
         List<LatLng> bukitBatokBoundary = Arrays.asList(new LatLng(1.379716, 103.761252), new LatLng(1.377164, 103.755759),
                 new LatLng(1.376713, 103.754343), new LatLng(1.375297, 103.753034), new LatLng(1.373238, 103.752154),
@@ -373,6 +402,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
+        hm.put(bukitBatok, "BUKIT BATOK");
+
         List<LatLng> bukitPanjangBoundary = Arrays.asList(new LatLng(1.388710, 103.755160), new LatLng(1.384913, 103.757692),
                 new LatLng(1.383240, 103.759323), new LatLng(1.378478, 103.761812), new LatLng(1.377791, 103.762091),
                 new LatLng(1.371334, 103.763335), new LatLng(1.370498, 103.763700), new LatLng(1.364513, 103.767519),
@@ -398,6 +429,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
+        hm.put(bukitBatok, "BUKIT BATOK");
+
         List<LatLng> choaChuKangBoundary = Arrays.asList(new LatLng(1.379035, 103.732675), new LatLng(1.377018, 103.734391),
                 new LatLng(1.375431, 103.736194), new LatLng(1.374358, 103.737567), new LatLng(1.373457, 103.739198),
                 new LatLng(1.372428, 103.742674), new LatLng(1.371698, 103.745549), new LatLng(1.369124, 103.748425),
@@ -421,6 +454,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+
+        hm.put(choaChuKang, "CHOA CHU KANG");
 
         List<LatLng> clementiBoundary = Arrays.asList(new LatLng(1.341725, 103.748751), new LatLng(1.341274, 103.748493),
                 new LatLng(1.340824, 103.748665), new LatLng(1.338764, 103.748751), new LatLng(1.330655, 103.749480),
@@ -447,6 +482,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(clementi, "CLEMENTI");
 
         List<LatLng> jurongEastBoundary = Arrays.asList(new LatLng(1.353480, 103.728186), new LatLng(1.344556, 103.728186),
                 new LatLng(1.345114, 103.723937), new LatLng(1.344942, 103.721877), new LatLng(1.344256, 103.721834),
@@ -479,6 +515,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
+        hm.put(jurongEast, "JURONG EAST");
+
         List<LatLng> jurongWestBoundary = Arrays.asList(new LatLng(1.330931, 103.674811), new LatLng(1.330416, 103.676012),
                 new LatLng(1.330245, 103.679445), new LatLng(1.327756, 103.679274), new LatLng(1.327585, 103.706053),
                 new LatLng(1.327842, 103.706911), new LatLng(1.331618, 103.721073), new LatLng(1.330416, 103.720988),
@@ -502,6 +540,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+
+        hm.put(jurongWest, "JURONG WEST");
 
         List<LatLng> bishanBoundary = Arrays.asList(new LatLng(1.341777, 103.835914), new LatLng(1.343664, 103.839175),
                 new LatLng(1.344866, 103.840506), new LatLng(1.345123, 103.841278), new LatLng(1.344994, 103.842008),
@@ -527,6 +567,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
+        hm.put(bishan, "BISHAN");
 
         List<LatLng> geylangBoundary = Arrays.asList(new LatLng(1.327813, 103.868839),new LatLng(1.328083, 103.869388),new LatLng(1.328024, 103.869510),new LatLng(1.328519, 103.870403),
                 new LatLng(1.328718, 103.871395), new LatLng(1.329114, 103.872485), new LatLng(1.329412, 103.873080), new LatLng(1.329511, 103.873874),
@@ -562,7 +603,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(geylangBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+
+        hm.put(geylang, "GEYLANG");
 
         List<LatLng> kallangBoundary = Arrays.asList(new LatLng(1.330371, 103.862313), new LatLng(1.329242, 103.865130), new LatLng(1.328446, 103.867554), new LatLng(1.328342, 103.868072),
                 new LatLng(1.326987, 103.869839), new LatLng(1.326358, 103.870568), new LatLng(1.321112, 103.874669), new LatLng(1.320538, 103.875280),
@@ -593,7 +637,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(kallangBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+        hm.put(kallang, "KALLANG");
 
         List<LatLng> marineParadeBoundary = Arrays.asList(new LatLng(1.284217, 103.880543), new LatLng(1.286421, 103.882963), new LatLng(1.287089, 103.883915), new LatLng(1.287342, 103.884816),
                 new LatLng(1.287342, 103.885556), new LatLng(1.288628, 103.886467), new LatLng(1.290552, 103.888776), new LatLng(1.290714, 103.889464),
@@ -618,7 +664,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(marineParadeBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+
+        hm.put(marineParade, "MARINE PARADE");
 
         List<LatLng> queenstownBoundary = Arrays.asList(new LatLng(1.255067, 103.785491), new LatLng(1.267406, 103.792746), new LatLng(1.269740, 103.796498), new LatLng(1.271908, 103.797832),
                 new LatLng(1.270741, 103.800000), new LatLng(1.272741, 103.801001), new LatLng(1.272575, 103.802169), new LatLng(1.275274, 103.801962),
@@ -654,7 +703,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(queenstownBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+
+        hm.put(queenstown, "QEENSTOWN");
 
         List<LatLng> toaPayohBoundary = Arrays.asList(new LatLng(1.341761, 103.835816), new LatLng(1.343563, 103.839077), new LatLng(1.344940, 103.840392), new LatLng(1.345060, 103.840990),
                 new LatLng(1.345000, 103.840990), new LatLng(1.345060, 103.841947), new LatLng(1.344462, 103.843024), new LatLng(1.343983, 103.844280),
@@ -674,7 +726,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(toaPayohBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+
+        hm.put(toaPayoh, "TOA PAYOH");
 
         List<LatLng> bukitMerahBoundary = Arrays.asList(new LatLng(1.262384, 103.804998), new LatLng(1.262534, 103.805341),
                 new LatLng(1.262838, 103.805389), new LatLng(1.263816, 103.805230), new LatLng(1.263589, 103.805534),
@@ -730,6 +785,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
+        hm.put(bukitMerah, "BUKIT MERAH");
+
         List<LatLng> bukitTimahBoundary = Arrays.asList(new LatLng(1.307255, 103.802277), new LatLng(1.314720, 103.804595),
                 new LatLng(1.319011, 103.809402), new LatLng(1.321413, 103.812921), new LatLng(1.328278, 103.814037),
                 new LatLng(1.335744, 103.818587), new LatLng(1.338404, 103.814466), new LatLng(1.338404, 103.813350),
@@ -759,7 +816,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .strokeWidth(STROKE_WIDTH)
                 .fillColor(FILL_COLOR)
                 .clickable(true));
-
+        hm.put(bukitTimah, "BUKIT TIMAH");
 
         List<LatLng> yishunboundary = Arrays.asList(new LatLng(1.435458, 103.825855), new LatLng(1.432562, 103.826649),
                 new LatLng(1.428743, 103.826842), new LatLng(1.428314, 103.826821), new LatLng(1.427907, 103.826799),
@@ -792,11 +849,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 new LatLng(1.440262, 103.829524), new LatLng(1.438375, 103.829095), new LatLng(1.437045, 103.828601),
                 new LatLng(1.436272, 103.827679));
 
-        Polygon yishun = mMap.addPolygon(new PolygonOptions()
+        final Polygon yishun = mMap.addPolygon(new PolygonOptions()
                 .addAll(yishunboundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+        hm.put(yishun, "YISHUN");
 
         List<LatLng> sembawangBoundary = Arrays.asList(new LatLng(1.461502, 103.790689), new LatLng(1.465421, 103.796820), new LatLng(1.465421, 103.796820),
                 new LatLng(1.465578, 103.796689), new LatLng(1.465664, 103.797035), new LatLng(1.466269, 103.797856),
@@ -834,14 +893,101 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addAll(sembawangBoundary)
                 .strokeColor(Color.RED)
                 .strokeWidth(STROKE_WIDTH)
-                .fillColor(FILL_COLOR));
-
+                .fillColor(FILL_COLOR)
+                .clickable(true));
+        hm.put(sembawang, "SEMBAWANG");
 
         mMap.setOnPolygonClickListener(new GoogleMap.OnPolygonClickListener() {
             @Override
             public void onPolygonClick(Polygon polygon) {
+                if (pre_region != null){
+                    if (pre_region != polygon) {
+                        pre_region.setFillColor(FILL_COLOR);
+                        pre_region = polygon;
+                    } else return;
+                } else pre_region = polygon;
+                polygon.setFillColor(0);
+
+
+                double lat = 0;
+                double lng = 0;
+                int len = polygon.getPoints().size();
+                for (LatLng i: polygon.getPoints()){
+                    lat += i.latitude;
+                    lng += i.longitude;
+                }
+
+                lat /= len;
+                lng /= len;
+
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 13.2f));
+                //Marker test = addText(MapsActivity.super.getApplicationContext(), mMap, new LatLng(lat,lng), "random loc", 0, 20);
+                SharedPreferences.Editor editor;
+
+                String regionName = hm.get(polygon);
+
 
             }
         });
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                mMap.setInfoWindowAdapter(new BtoInfoWindowAdapter(MapsActivity.this));
+                if (marker.isInfoWindowShown()){
+                    marker.hideInfoWindow();
+                } else {
+                    marker.showInfoWindow();
+                }
+                return true;
+            }
+        });
+
+    }
+
+    public void displayFlats(List<LatLng> Flats){
+        for (LatLng i: Flats){
+            Marker mMarker= mMap.addMarker(new MarkerOptions().position(i));
+        }
+    }
+
+    public Marker addText(final Context context, final GoogleMap map,
+                          final LatLng location, final String text, final int padding,
+                          final int fontSize) {
+        Marker marker = null;
+
+        if (context == null || map == null || location == null || text == null
+                || fontSize <= 0) {
+            return marker;
+        }
+
+        final TextView textView = new TextView(context);
+        textView.setText(text);
+        textView.setTextSize(fontSize);
+
+        final Paint paintText = textView.getPaint();
+
+        final Rect boundsText = new Rect();
+        paintText.getTextBounds(text, 0, textView.length(), boundsText);
+        paintText.setTextAlign(Paint.Align.CENTER);
+
+        final Bitmap.Config conf = Bitmap.Config.ARGB_8888;
+        final Bitmap bmpText = Bitmap.createBitmap(boundsText.width() + 2
+                * padding, boundsText.height() + 2 * padding, conf);
+
+        final Canvas canvasText = new Canvas(bmpText);
+        paintText.setColor(Color.BLACK);
+
+        canvasText.drawText(text, canvasText.getWidth() / 2,
+                canvasText.getHeight() - padding - boundsText.bottom, paintText);
+
+        final MarkerOptions markerOptions = new MarkerOptions()
+                .position(location)
+                .icon(BitmapDescriptorFactory.fromBitmap(bmpText))
+                .anchor(0.5f, 1);
+
+        marker = map.addMarker(markerOptions);
+
+        return marker;
     }
 }
