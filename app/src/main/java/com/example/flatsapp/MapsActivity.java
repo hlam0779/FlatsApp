@@ -1,6 +1,7 @@
 package com.example.flatsapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -48,6 +50,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        final String[] flatdetail = extras.getStringArray("FLAT DETAILS");
+        
+        for(int i = 0; i<flatdetail.length;i++)
+        {
+            Log.d("FLAT","flat detail = " + flatdetail[i]);
+        }
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
