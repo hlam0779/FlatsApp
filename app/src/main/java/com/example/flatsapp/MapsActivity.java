@@ -26,6 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.maps.android.clustering.ClusterManager;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -43,6 +44,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private Polygon pre_region=null;
     private static HashMap<Polygon, String> hm;
+
+    //for FlatMarker
+    private ClusterManager<FlatMarker> mClusterManager;
+    private ClusterManagerRenderer mClusterManagerRenderer;
+    private ArrayList<FlatMarker> mClusterMarkers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         LatLng singaporeCenter = new LatLng(1.359443, 103.848104);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(singaporeCenter, 10f));
-        Marker test = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(1.359443, 103.848104))
-                .title("Chinam")
-                .snippet("Adress: NTU\nPhone: 12345678\n"));
+
 
         hm = new HashMap<Polygon, String>();
         List<LatLng> woodLandsBoudary = Arrays.asList(new LatLng(1.461403, 103.790672), new LatLng(1.458014, 103.785458),
@@ -928,21 +931,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        mMap.setInfoWindowAdapter(new BtoInfoWindowAdapter(this));
+        addMarkers();
 
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                LatLng pos = marker.getPosition();
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(pos.latitude+0.02, pos.longitude),13.2f));
-                if (marker.isInfoWindowShown()){
-                    marker.hideInfoWindow();
-                } else {
-                    marker.showInfoWindow();
-                }
-                return true;
-            }
-        });
+
 
     }
 
@@ -950,6 +941,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for (LatLng i: Flats){
             Marker mMarker= mMap.addMarker(new MarkerOptions().position(i));
         }
+    }
+
+    private void addMarkers(){
+        if(mClusterManager== null){
+            mClusterManager = new ClusterManager<>(this.getApplicationContext(),mMap);
+        }
+        if(mClusterManagerRenderer == null){
+            mClusterManagerRenderer = new ClusterManagerRenderer(
+                    this,
+                    mMap,
+                    mClusterManager
+            );
+            mClusterManager.setRenderer(mClusterManagerRenderer);
+        }
+        mMap.setInfoWindowAdapter(new BtoInfoWindowAdapter(this));
+
+        // test a custom marker
+
+        String snippet = "Flat ABCXYZ \nType X-room\nHello World";
+        int avatar = R.drawable.flatava;
+        FlatMarker miranaMarker = new FlatMarker(new LatLng(1.347687, 103.712949),"Chinam Headquarter",snippet,avatar);
+        mClusterManager.addItem(miranaMarker);
+        mClusterMarkers.add(miranaMarker);
+        mClusterManager.cluster();
+
+
     }
 
 
