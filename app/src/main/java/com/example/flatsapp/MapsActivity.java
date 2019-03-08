@@ -597,7 +597,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .fillColor(FILL_COLOR)
                 .clickable(true));
 
-        List<LatLng> kallangBoundary = Arrays.asList(new LatLng(1.330371, 103.862313), new LatLng(1.329242, 103.865130), new LatLng(1.328446, 103.867554), new LatLng(1.328342, 103.868072),
+        List<LatLng> kallangBoundary = Arrays.asList(new LatLng(1.329242, 103.865130), new LatLng(1.328446, 103.867554), new LatLng(1.328342, 103.868072),
                 new LatLng(1.326987, 103.869839), new LatLng(1.326358, 103.870568), new LatLng(1.321112, 103.874669), new LatLng(1.320538, 103.875280),
                 new LatLng(1.320049, 103.876252), new LatLng(1.319913, 103.875994), new LatLng(1.319291, 103.875342), new LatLng(1.318608, 103.875069),
                 new LatLng(1.317668, 103.874811), new LatLng(1.316758, 103.874720), new LatLng(1.316075, 103.874659), new LatLng(1.314194, 103.874811),
